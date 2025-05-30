@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "lsp-bridge": {
+      "command": "node",
+      "args": [
+        "/home/eran/work/lsp-mcp/dist/cli.js",
+        "--config",
+        "/home/eran/work/lsp-mcp/test.yaml",
+        "--lsp",
+        "ts",
+        "--workspace",
+        "/home/eran/work/lsp-mcp"
+      ],
+      "env": {}
+    }
+  }
+}

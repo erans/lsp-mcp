@@ -1,0 +1,62 @@
+{
+  "name": "lsp-mcp-bridge",
+  "version": "1.0.0",
+  "description": "TypeScript bridge between Language Server Protocol (LSP) servers and Model Context Protocol (MCP) for Claude Code",
+  "main": "dist/index.js",
+  "bin": {
+    "lsp-mcp-bridge": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist coverage",
+    "dev:ts": "npm run build && ./dist/cli.js --verbose --config lsp-servers.yaml --lsp typescript",
+    "dev:python": "npm run build && ./dist/cli.js --verbose --config lsp-servers.yaml --lsp python",
+    "dev:go": "npm run build && ./dist/cli.js --verbose --config lsp-servers.yaml --lsp go",
+    "dev:rust": "npm run build && ./dist/cli.js --verbose --config lsp-servers.yaml --lsp rust",
+    "dev:cpp": "npm run build && ./dist/cli.js --verbose --config lsp-servers.yaml --lsp cpp"
+  },
+  "keywords": [
+    "lsp",
+    "language-server-protocol",
+    "mcp",
+    "model-context-protocol",
+    "typescript",
+    "claude-code",
+    "code-analysis",
+    "semantic-analysis",
+    "bridge"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "@types/js-yaml": "^4.0.9",
+    "axios": "^1.7.7",
+    "commander": "^12.1.0",
+    "js-yaml": "^4.1.0",
+    "vscode-jsonrpc": "^8.2.0",
+    "vscode-languageserver-protocol": "^3.17.5",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitest/coverage-v8": "^1.4.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.2",
+    "typescript-language-server": "^4.3.4",
+    "vitest": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

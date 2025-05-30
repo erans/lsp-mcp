@@ -1,0 +1,50 @@
+# LSP Server Configuration
+# Define LSP servers with their commands or HTTP endpoints
+# Key: server identifier, Value: command or HTTP URL
+#
+# IMPORTANT: You may need to update the paths below to match your system's
+# LSP server installations. If a command is not in your PATH, use the full path.
+#
+# Examples of full paths:
+#   typescript: "/usr/local/bin/typescript-language-server --stdio"
+#   python: "/opt/homebrew/bin/pylsp"
+#   go: "/usr/local/go/bin/gopls"
+#
+# To check if an LSP server is installed and find its path:
+#   which pylsp
+#   which typescript-language-server
+#   which gopls
+
+# TypeScript/JavaScript
+# Requires: npm install -g typescript-language-server
+typescript: "/home/eran/work/lsp-mcp/node_modules/.bin/typescript-language-server --stdio"
+ts: "typescript-language-server --stdio"
+
+# Python
+# Requires: pip install python-lsp-server
+python: "pylsp"
+pylsp: "pylsp"
+
+# Go
+# Requires: go install golang.org/x/tools/gopls@latest
+go: "gopls"
+golang: "gopls"
+
+# Rust
+# Requires: Install via rustup or package manager
+rust: "rust-analyzer"
+rust-analyzer: "rust-analyzer"
+
+# C/C++
+# Requires: Install via package manager (e.g., apt install clangd)
+cpp: "clangd"
+c: "clangd"
+clangd: "clangd"
+
+# HTTP-based servers (examples)
+# Configure these to point to your HTTP LSP server endpoints
+typescript-http: "http://localhost:8080"
+python-remote: "http://lsp-server.internal:3333"
+
+# Mock LSP server for testing
+mock: "node mock-lsp-server.js"
