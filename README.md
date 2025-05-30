@@ -28,6 +28,14 @@
 
 A comprehensive bridge between Language Server Protocol (LSP) servers and Model Context Protocol (MCP) that provides Claude Code with advanced semantic code understanding capabilities.
 
+## 📋 LSP Specification Support
+
+**Implementation based on Language Server Protocol Specification 3.17.0**
+- Specification URL: https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/
+- Provides semantic code understanding that surpasses basic text-based tools
+
+**⚠️ Server Compatibility Note**: Not all LSP servers support all LSP methods. When a server doesn't support a requested operation, it will return an error and Claude Code will automatically fall back to traditional tools (grep, find, etc.) for that specific operation.
+
 ## 🚀 Features
 
 - **22 LSP-powered tools** for semantic code analysis
