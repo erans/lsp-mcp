@@ -47,6 +47,22 @@ A comprehensive bridge between Language Server Protocol (LSP) servers and Model 
 
 ## 📦 Installation
 
+### Option 1: Using npx (No installation required)
+
+You can run the LSP-MCP bridge directly using npx without cloning or installing:
+
+```bash
+# Run directly from GitHub
+npx github:erans/lsp-mcp --help
+
+# Run with a specific LSP server
+npx github:erans/lsp-mcp --config lsp-servers.yaml --lsp typescript --workspace /path/to/project
+```
+
+**Note**: You'll need to have a configuration file like [`lsp-servers.yaml`](https://github.com/erans/lsp-mcp/blob/main/lsp-servers.yaml) locally that defines your LSP server commands. Download it from the repository and customize it with your LSP server paths.
+
+### Option 2: Clone and Build
+
 ```bash
 # Clone the repository
 git clone https://github.com/erans/lsp-mcp.git
@@ -244,6 +260,25 @@ The easiest way to use this bridge with Claude Code is through MCP configuration
 
 Create an MCP configuration file:
 
+**Option A: Using npx (no cloning required)**
+```json
+{
+  "mcpServers": {
+    "lsp-bridge": {
+      "command": "npx",
+      "args": [
+        "github:erans/lsp-mcp",
+        "--config", "/path/to/your/lsp-servers.yaml",
+        "--lsp", "typescript",
+        "--workspace", "/path/to/your/project"
+      ],
+      "env": {}
+    }
+  }
+}
+```
+
+**Option B: Using cloned repository**
 ```json
 {
   "mcpServers": {
@@ -270,6 +305,24 @@ claude-code --mcp-config /path/to/mcp-config.json
 
 Add to your Claude Code configuration file (`~/.config/claude-code/config.json`):
 
+**Option A: Using npx (no cloning required)**
+```json
+{
+  "mcpServers": {
+    "lsp-bridge": {
+      "command": "npx",
+      "args": [
+        "github:erans/lsp-mcp",
+        "--config", "/path/to/your/lsp-servers.yaml",
+        "--lsp", "typescript",
+        "--workspace", "/path/to/your/project"
+      ]
+    }
+  }
+}
+```
+
+**Option B: Using cloned repository**
 ```json
 {
   "mcpServers": {
@@ -290,6 +343,16 @@ Add to your Claude Code configuration file (`~/.config/claude-code/config.json`)
 
 Use Claude Code's built-in MCP server command line arguments:
 
+**Option A: Using npx (no cloning required)**
+```bash
+# Add the LSP bridge as an MCP server directly via CLI
+claude mcp add lsp-bridge -- npx github:erans/lsp-mcp --config /path/to/your/lsp-servers.yaml --lsp typescript --workspace /path/to/your/project
+
+# Or run Claude Code with inline MCP server configuration
+claude-code --mcp-server="npx github:erans/lsp-mcp --config /path/to/your/lsp-servers.yaml --lsp typescript --workspace /path/to/your/project"
+```
+
+**Option B: Using cloned repository**
 ```bash
 # Add the LSP bridge as an MCP server directly via CLI
 claude mcp add lsp-bridge -- node /path/to/lsp-mcp/dist/cli.js --config /path/to/lsp-mcp/lsp-servers.yaml --lsp typescript --workspace /path/to/your/project
