@@ -4,9 +4,10 @@
   "description": "TypeScript bridge between Language Server Protocol (LSP) servers and Model Context Protocol (MCP) for Claude Code",
   "main": "dist/index.js",
   "bin": {
-    "lsp-mcp-bridge": "src/cli.js"
+    "lsp-mcp-bridge": "dist/cli.js"
   },
   "scripts": {
+    "prepare": "tsc",
     "build": "tsc",
     "dev": "tsx src/cli.ts",
     "test": "vitest",
