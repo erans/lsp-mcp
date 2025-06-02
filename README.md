@@ -267,6 +267,7 @@ Create an MCP configuration file:
     "lsp-bridge": {
       "command": "npx",
       "args": [
+        "--yes",
         "github:erans/lsp-mcp",
         "--config", "/path/to/your/lsp-servers.yaml",
         "--lsp", "typescript",
@@ -277,6 +278,8 @@ Create an MCP configuration file:
   }
 }
 ```
+
+**⚠️ Security Note**: The `--yes` flag automatically accepts the npx installation prompt. Only use this flag if you trust the `github:erans/lsp-mcp` package. Without this flag, the MCP server may hang waiting for user confirmation.
 
 **Option B: Using cloned repository**
 ```json
@@ -312,6 +315,7 @@ Add to your Claude Code configuration file (`~/.config/claude-code/config.json`)
     "lsp-bridge": {
       "command": "npx",
       "args": [
+        "--yes",
         "github:erans/lsp-mcp",
         "--config", "/path/to/your/lsp-servers.yaml",
         "--lsp", "typescript",
@@ -321,6 +325,8 @@ Add to your Claude Code configuration file (`~/.config/claude-code/config.json`)
   }
 }
 ```
+
+**⚠️ Security Note**: The `--yes` flag automatically accepts the npx installation prompt. Only use this flag if you trust the `github:erans/lsp-mcp` package. Without this flag, the MCP server may hang waiting for user confirmation.
 
 **Option B: Using cloned repository**
 ```json
@@ -346,11 +352,13 @@ Use Claude Code's built-in MCP server command line arguments:
 **Option A: Using npx (no cloning required)**
 ```bash
 # Add the LSP bridge as an MCP server directly via CLI
-claude mcp add lsp-bridge -- npx github:erans/lsp-mcp --config /path/to/your/lsp-servers.yaml --lsp typescript --workspace /path/to/your/project
+claude mcp add lsp-bridge -- npx --yes github:erans/lsp-mcp --config /path/to/your/lsp-servers.yaml --lsp typescript --workspace /path/to/your/project
 
 # Or run Claude Code with inline MCP server configuration
-claude-code --mcp-server="npx github:erans/lsp-mcp --config /path/to/your/lsp-servers.yaml --lsp typescript --workspace /path/to/your/project"
+claude-code --mcp-server="npx --yes github:erans/lsp-mcp --config /path/to/your/lsp-servers.yaml --lsp typescript --workspace /path/to/your/project"
 ```
+
+**⚠️ Security Note**: The `--yes` flag automatically accepts the npx installation prompt. Only use this flag if you trust the `github:erans/lsp-mcp` package. Without this flag, the MCP server may hang waiting for user confirmation.
 
 **Option B: Using cloned repository**
 ```bash
